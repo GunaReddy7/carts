@@ -20,11 +20,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <prometheus.version>0.0.21</prometheus.version>
-    </properties>
-         
-    <properties>
-	<jdk.version>1.8</jdk.version>
+        <prometheus.version>0.0.21</prometheus.version> 
+   	<jdk.version>1.8</jdk.version>
 	<spring.version>5.1.2.RELEASE</spring.version>
 	<junit.version>4.11</junit.version>
 	<log4j.version>1.2.17</log4j.version>
