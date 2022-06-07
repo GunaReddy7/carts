@@ -82,6 +82,22 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+	
+	<distributionManagement>
+	
+	    <repository>
+	      <id>nexus</id>
+	      <name>guna</name>
+	      <url>http://172.16.238.77:8081/repository/task-release///</url>
+	    </repository>
+	    
+	    <snapshotRepository>
+	      <id>nexus</id>
+	      <name>guna</name>
+	      <url>http://172.16.238.77:8081/repository/task-snapshot///</url>
+	    </snapshotRepository>
+	    
+	</distributionManagement>
 
     <build>
         <finalName>carts</finalName>
