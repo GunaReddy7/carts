@@ -28,8 +28,7 @@ jobs:
       with:
         java-version: 1.8
  
-   
-   
+      
     # Build
     - name: Build jar files
       run: ./scripts/build.sh
