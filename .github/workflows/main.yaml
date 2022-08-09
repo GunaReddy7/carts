@@ -28,14 +28,41 @@ jobs:
       with:
         java-version: 1.8
  
-    #
-    #
+   
     # Build
     - name: Build jar files
       run: ./scripts/build.sh
 
-    #
-    #
+    - name: Build with Maven
+      run: mvn -B -DskipTests package --file pom.xml
+
+    - name: Unit Tests
+      run: mvn -q test
+      
+   # Build docker image for service
+    - name: Build docker image
+      uses: docker/build-push-action@v1
+        with:
+          push: false
+          dockerfile: docker/orders/Dockerfile.github
+          repository: ${{ env.GROUP }}/${{ env.REPO }}
+          tag_with_ref: true
+          tag_with_sha: true
+          tags: ${{ github.sha }}
+
+    # Build docker image for mock service
+    - name: Build mock docker image
+      uses: docker/build-push-action@v1
+        with:
+          push: false
+          path: test/json-server/
+          dockerfile: test/json-server/Dockerfile
+          repository: weaveworksdemos/json-server
+          tags: latest
+      - name: Login to DockerHub
+        run: |
+          echo "${{ secrets.DOCKERHUB_PASS }}" | docker login -u "venupj" --password-stdin 
+   
     # Push to dockerhub
     - name: Push to Docker Hub
       uses: docker/build-push-action@v1
