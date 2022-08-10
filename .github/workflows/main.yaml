@@ -42,7 +42,7 @@ jobs:
    # Build docker image for service
     - name: Build docker image
       uses: docker/build-push-action@v1
-        with:
+      with:
           push: false
           dockerfile: Dockerfile
           repository: ${{ env.GROUP }}/${{ env.REPO }}
