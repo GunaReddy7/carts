@@ -51,7 +51,7 @@ jobs:
           tags: ${{ github.sha }}
 
     - name: Login to DockerHub
-        run: |
+      run: |
           echo "${{ secrets.DOCKERHUB_PASS }}" | docker login -u "gunareddy7" --password-stdin 
    
     # Push to dockerhub
