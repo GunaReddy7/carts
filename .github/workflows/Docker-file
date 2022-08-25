@@ -25,3 +25,5 @@
         with:
           push: true
           tags: <your artifactory>.jfrog.io/<your image name>:latest
+
+
